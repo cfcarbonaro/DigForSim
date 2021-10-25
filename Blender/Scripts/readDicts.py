@@ -1,3 +1,6 @@
+# This is a startup script, i.e. it is executed only once when the game starts.
+# Therefore, game properties are created here.
+
 import bge
 import bpy
       
@@ -47,6 +50,7 @@ cont = bge.logic.getCurrentController()
 own = cont.owner
 sce = bge.logic.getCurrentScene()
 
+# own[x] means that a game property of the owner will be created.  
 own['timeTable'] = time_list
 
 own['t_idx'] = 0  # timeTable index
