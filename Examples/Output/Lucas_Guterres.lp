@@ -1,1 +1,10 @@
-
+at( "Lucas Guterres", loc(-98,154), 1 ).
+at( "Lucas Guterres", loc(-98,154), 2 ).
+at( "Lucas Guterres", loc(-98,154), 3 ).
+at( "Lucas Guterres", loc(-98,154), 4 ).
+at( "Lucas Guterres", loc(-98,154), 5 ).
+at( "Lucas Guterres", loc(-82,140), 6 ).
+at( "Lucas Guterres", loc(-66,126), 7 ).
+at( "Lucas Guterres", loc(-50,112), 8 ).
+at( "Lucas Guterres", loc(-34,98), 9 ).
+at( "Lucas Guterres", loc(-18,84), 10 ).
