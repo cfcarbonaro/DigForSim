@@ -1,0 +1,71 @@
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\title{DigForSim}
+\date{\today}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\maketitle
+
+\section{Create NavMesh}
+Creating a working Navigation Mesh is hard work. You need experience, patience and luck.
+Lets start:
+\subsection{Import OSM-file to Blender}
+\begin{enumerate}
+\item Open new scene. delete default cube (and default plane).
+\item Snap cursor to center.
+\item Import buildings from OSM-file. Without extrusion!\\ \vspace{0.05cm}\\
+\includegraphics[width=6cm]{../Pictures/osm_import.png} \\ 
+\item[\textcolor{red}{Error}]  in \texttt{bb\_vorstadt.osm}: about 4 buildings were extruded (despite the fact, that I unchecked the extrusion by levels box too). I deleted those buildings.
+\item Extrude now, from zero to five in z-direction (5m).
+\item \textit{Edit-mode}. Select all. Mesh-> clean up-> remove doubles
+\item \textit{Edit-mode}. Select all. Mesh-> clean up-> delete loose
+\item \textit{Add Plane}, \textit{scale} it. 
+\item Grab (g) + z 0.5m negative direction (-0.5).
+\item Extrude upper surface to +0.1795 (or simply +0.2). (Slightly overlapping the :buildings objects.)
+\item[\textcolor{green}{Important}] Apply scale to plane! If not, vertices will have other measure than :building-vertices. 
+\item Select :buildings first and -> operators -> boolean -> Union with plane
+\item[(optional)] maybe also possible the other way around: first select plane, then buildings 
+\item Move rest to other layer...
+\end{enumerate}
+\subsection{Clear Topology}
+Now the next part, which is very individual. 
+\begin{enumerate}
+\item \textit{Edit-mode}. Select all. Mesh-> clean up-> remove doubles (again)
+\item \textit{Edit-mode}. Select all. Mesh-> clean up-> delete loose (again)
+\item Search for anomalities in topology of the new mesh. (e.g. I found single edges in \texttt{bb\_vorstadt.osm}.
+Or here in \texttt{vicoli.osm} is left of the cursor a redundant edge:\\ \vspace{0.05cm}\\ 
+\includegraphics[width=10cm]{../Pictures/edge_error.png} \\ \vspace{0.05cm}\\
+Therefore, check the whole surface of the new mesh. Delete the redundant edges.
+\item When sure, that everything is clean, select new mesh -> scene tab -> create Navmesh
+\item There are many parameters, don't know them well. -> \textit{radius} to 0.20 (makes agents go through narrow streets too). \\ \vspace{0.05cm}\\ 
+\includegraphics[width=10cm]{../Pictures/screenshot_navmesh.png} 
+\item Recalculate Indices (button on pyhsics tab)\\ \vspace{0.05cm}\\ 
+\includegraphics[width=10cm]{../Pictures/screenshot_navmesh_2.png}
+\item The Navmesh should now look something like this (with edge-selection in Edit-mode):\\ \vspace{0.05cm}\\ 
+\includegraphics[width=10cm]{../Pictures/screenshot_navmesh_3.png} 
+
+\end{enumerate}
+
+\subsection{Test: Setting agent manually on NavMesh}
+\begin{enumerate}
+\item Add e.g. two \textit{spheres} (could be anything) to the scene
+\item Example game-logic for first agent (Sphere):\\ \vspace{0.05cm}\\ 
+\includegraphics[width=\textwidth]{../Pictures/game_logic.png} \\ \vspace{0.05cm}\\ 
+where the target is the second agent (Sphere.001) and the NavMesh's name is Navmesh.
+Sensor and Actuator are connected via And-Controller. Later, here will be a Python-Controller for more advanced logic. After starting the game enmgine it looks like this (red line because of Visualize-checkbox): \\ \vspace{0.05cm}\\ 
+\includegraphics[width=10cm]{../Pictures/game_test.png}\\ \vspace{0.05cm}\\
+\item Seems to work! If it looks like this, one can start to develop the simulation.
+
+\end{enumerate}
+
+
+\end{document}
