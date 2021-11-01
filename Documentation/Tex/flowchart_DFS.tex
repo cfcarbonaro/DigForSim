@@ -1,5 +1,3 @@
-% System Combination
-% Harish K Krishnamurthy <www.ece.neu.edu/~hkashyap/>
 \documentclass{article}
 
 \usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
@@ -20,25 +18,20 @@
          myPoint/.style = {circle, fill=black, size=1pt},                  
 }
 
-
-
 \usepackage{amsmath,bm,times}
 \newcommand{\mx}[1]{\mathbf{\bm{#1}}} % Matrix command
 \newcommand{\vc}[1]{\mathbf{\bm{#1}}} % Vector command
-
 \pagestyle{empty}  %% only pdf-picture, no page number
-\begin{document}
 
+
+\begin{document}
 
 \begin{tikzpicture}[node distance=1.5cm,
     every node/.style={fill=white, font=\sffamily}]
   % Specification of nodes (position, etc.)
 
 \node (blenderSim) at (6.5,0)            [activityStarts]              {Blender Simulation};
-%\node (onCreateBlock)     [process, above of=blenderSim]          {onCreate()};
 
-%\node (blenderReverse)    [activityStarts, right of=blenderSim, xshift=6cm]
-%                                                              {Blender Reverse};
 \node (blenderReverse) at (14, 0)   [activityStarts]  {Blender Reverse};                                                             
 \path (blenderSim.north)+(-3.5,1.7) node (randGen) [process] {Random generator};
 \path (blenderSim.north)+(0,1.7)  node (config)[process] {Config file};
@@ -68,8 +61,6 @@
 
 \draw[->]      (partlogs) -- (reasoner);
 
-
-
 \draw[->] ([xshift= -3cm] blenderReverse) |- ( [yshift=0.5cm] reasoner);
 \draw[<-] ([xshift= 3cm] blenderReverse) |- ([yshift= -0.5cm] reasoner);
 \node at (12.7, -7) [rotate=90] {$\leftarrow$ Updates reasoner};
@@ -80,7 +71,6 @@
 \node (result) at (6.5,-17)    [result]     {Results};
 \draw[->] (reasoner) -- (result);
 \end{tikzpicture}
-
 
 
 \end{document}
