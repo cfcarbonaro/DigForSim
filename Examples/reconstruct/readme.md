@@ -1,4 +1,7 @@
-Follow these steps:
+In this directory are already generated files (the agents log-files e.g., o.log , i.log,..)
+
+
+**To try it yourself, follow these steps:
 
 1) Run simulation in UPBGE (2.79)
 (This generates log-data, that already get a lp-extension
@@ -21,4 +24,8 @@ Follow these steps:
       ( imports i.log and uses regular expressions, then pickles an dictionary )
   2) load_answer_sets.py
       ( loads the pickled dict and starts creating the game objects )
+  
+  
+  
+  
   
