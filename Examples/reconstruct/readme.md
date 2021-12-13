@@ -8,7 +8,7 @@ In this directory are already generated files (the agents log-files e.g., o.log 
 
 2) run Clingo with the files:
   murder.lp (bytheway it's not a murder:)
-  <agents>_log.lp
+  agents_log.lp
   
   and output it to a file o.log
   
