@@ -6,6 +6,19 @@ with open(r'/home/jens/spade_pur.json','r') as f:
       j=json.load(f) 
       print (j)
 
+      
+
+###  define some colors  ( for now only visible in viewport ( not render ) ):
+matg = bpy.data.materials.new("Green")
+matg.diffuse_color = (0,1,0,0.8)
+matw = bpy.data.materials.new("White")
+matg.diffuse_color = (0,0,0,0.8)
+matr = bpy.data.materials.new("Red")
+matr.diffuse_color = (1,0,0,0.8)
+#obj = bpy.data.objects.get('Cubix')
+#obj.active_material = matr      
+      
+      
 coll = bpy.context.blend_data.collections.new(name="Answer Sets")
 bpy.context.collection.children.link(coll)
       
@@ -80,4 +93,10 @@ for i, val in enumerate(j["Call"][0]["Witnesses"]):
                 frame = t * fps
                 agent.keyframe_insert(data_path="location", frame=frame)
     
-    
+        if atom.startswith('crime_place('):
+            print("Scene of crime:")
+            m = re.search(r"crime_place\((\w+)\)", atom )
+            print(m[0], m[1])
+            obj_name = str(m[1])
+            obj = bpy.data.objects.get(obj_name)
+            obj.active_material = matr 
