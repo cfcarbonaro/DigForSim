@@ -4,6 +4,7 @@ at(p1, 7).
 at(p1, 14).
 at(p1, 20).
 at(p1, 30).
+at( p2, 11 ).
 
 time(T..T1) :- at(P,T), at(P,T1), T<T1.
 
