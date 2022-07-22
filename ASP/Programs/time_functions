@@ -1,0 +1,36 @@
+#script (python)
+
+import clingo
+import math
+import datetime as dt
+
+N = clingo.Number
+S = clingo.String
+
+    
+def quick():
+    print("Hello")
+    return [ N(23), S("2022-06-05") ]
+
+
+
+def time( t1, t2 ):
+
+    # remove redundant quotes:
+    t1_str = str(t1).replace('"', '')
+    t2_str = str(t2).replace('"', '')
+    #t_str = t.strftime("%Y-%d-%m %H:%M:%S")
+    t1_new = dt.datetime.strptime(t1_str, "%Y-%m-%d %H:%M:%S")
+    t2_new = dt.datetime.strptime(t2_str, "%Y-%m-%d %H:%M:%S")
+
+    delta = t2_new - t1_new
+    delta_sec = delta.total_seconds()
+    delta_str = str( delta )
+    delta_int = N( int(delta_sec) )
+    
+    print( delta, delta_sec )
+    
+    #return S(delta_str)
+    return delta_int
+      
+#end.
