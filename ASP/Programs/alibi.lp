@@ -98,9 +98,11 @@ in_time_radius( T' )  :-  crime_time( T ),
 %%%   I define "reliable" as definitely speaking the truth:
 
 innocent( X ) :- suspect( X ),
-                 gives_alibi( Y, X, S ),
+                 gives_alibi( Y, X, _ ),
                  reliable( Y ). 
                  
+                 
+reliable( P )  :-  not suspect( P ) .                 
                  
 
 
