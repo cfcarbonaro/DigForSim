@@ -9,13 +9,23 @@
 at( "John", 450, loc( 30, 42 ) ) .
 
 contradiction( P, T )  :-  stayed( P, T1, T2, L ),  at( P, T, L' ),  L != L',  T1 < T,  T < T2.
-
+                                                       
+ %%suspect(  "Tommy",  false_statement( "Tommy", "2022-06-09 16:11:00" )  
+         
+ suspect(  P  )  :-   false_statement( P, T ). 
 
 statement( "Tommy", "2022-06-09 16:11:00", content( stayed( "John", -200, 1600, loc( 10, 12 ) ) ) ).
+                                                       
+                                                       
+false_statement( "Tommy", "2022-06-09 16:11:00" ).                                                        
+                                                       
 
+           
 { -stayed( P', T1, T2, L ) ; stayed( P', T1, T2, L ) } = 1   :-  statement( P, T, content(C) ),
                                   C=stayed( P', T1, T2, L ) .
-                                  
+
+                                           
+%%% C   :-   statement( P, T, content(C) ), not false_statement(  P, T ).                                         
                                   
 %works(yes)  :-  statement( P, T, content(C) ), -C.
 
