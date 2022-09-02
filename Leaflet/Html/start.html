@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+
+<html>
+<head>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+   
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+
+</head>
+<body>
+
+
+<h1>My First Heading</h1>
+<p style="color:red;">My first paragraph.</p>
+
+
+
+ <a href="https://www.w3schools.com">This is a link</a> 
+
+<p id="demo">Hi.</p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello World!";
+</script> 
+
+<div id="map" style="width:800px; height: 500px;"></div>
+
+
+ <img src="futurium_dach.jpg" alt="W3Schools.com" width="104" height="142"> 
+
+<hr>
+ <p title="I'm a tooltip">This is a paragraph.</p> 
+ 
+<p>JavaScript can change the content of an HTML element:</p>
+
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+<p id="demo">This is a demonstration.</p>
+
+<script>
+function myFunction() { 
+  document.getElementById("demo").innerHTML = "Hello JavaScript!";
+}
+</script>
+
+<script>
+var map = L.map('map').setView([52.505, 14.5], 13); 
+
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+ </script>
+ 
+ <script>
+var marker = L.marker([52.505, 14.5]).addTo(map);
+ </script>
+ 
+ 
+ <script> 
+ var circle = L.circle([52.505, 14.5], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
+  </script>
+ 
+ 
+
+ <script> 
+var map = L.map('map').setView([37.8, -96], 4);
+
+var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+L.geoJson(statesData).addTo(map);
+ </script> 
+ 
+ 
+ 
+ 
+ 
+</body>
+</html> 
