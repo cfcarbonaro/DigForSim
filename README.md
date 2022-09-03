@@ -33,6 +33,23 @@ Simulation of crime (UPBGE) combined with a Reasoner (ASP)
         <tr>
             <td rowspan=4>L1 Name</td>
             <td rowspan=2>L2 Name A</td>
+            
+   <table>
+ <tr>
+  <td colspan="2">&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+ <tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+ </tr>
+</table>         
             <td>L3 Name A</td>
         </tr>
         <tr>
