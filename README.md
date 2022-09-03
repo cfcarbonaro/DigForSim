@@ -24,7 +24,7 @@ Simulation of crime (UPBGE) combined with a Reasoner (ASP)
 
   <table>
  <tr>
-  <td colspan="2">&nbsp;</td>
+  <td colspan="3">He pays there at "12:28:00" for "Reni" pills.</td>
   <td>&nbsp;</td>
  </tr>
  <tr>
