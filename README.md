@@ -18,3 +18,5 @@ Simulation of crime (UPBGE) combined with a Reasoner (ASP)
 ---
 "John" drives to "Pharmacy" at "2022-06-05 12:25:00" from "home of John".
 ---
+
+```He pays there at "12:28:00" for "Reni" pills.```
