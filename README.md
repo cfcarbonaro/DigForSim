@@ -12,8 +12,7 @@ Simulation of crime (UPBGE) combined with a Reasoner (ASP)
 
 | Datetime  |  Action  |  Encoding  |
 | --- | --- | --- |
-| He pays there at "12:28:00" for "Reni" pills. 
-(Reni is against stomach pain ) |
+| He pays there at "12:28:00" for "Reni" pills. <br>(Reni is against stomach pain ) |
 | Day1 | Anna walks to pharmacy |`walks_to('Anna', 'pharmacy').` |
 | Day2 | Anna dies | Dies Anna |
 
